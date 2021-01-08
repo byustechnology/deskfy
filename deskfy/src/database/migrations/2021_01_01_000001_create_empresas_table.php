@@ -17,7 +17,16 @@ class CreateEmpresasTable extends Migration
             $table->id();
             $table->string('codigo')->unique();
             $table->string('titulo');
-
+            $table->string('documento')->unique();
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('numero');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->char('estado');
+            $table->string('complemento')->nullable();
+            $table->string('email');
+            $table->string('telefone');
             $table->text('observacao')->nullable();
             $table->timestamps();
         });

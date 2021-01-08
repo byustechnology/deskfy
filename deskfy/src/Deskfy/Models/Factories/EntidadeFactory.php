@@ -22,8 +22,18 @@ class EntidadeFactory extends Factory
     public function definition()
     {
         return [
+            'tipo' => $this->faker->randomElement(array_keys(Entidade::TIPOS)), 
             'codigo' => $this->faker->unique()->bothify('#####-??'), 
             'titulo' => $this->faker->sentence(3), 
+            'documento' => $this->faker->unique()->numerify('##############'), 
+            'responsavel' => $this->faker->name, 
+            'cep' => $this->faker->numerify('########'), 
+            'endereco' => $this->faker->randomElement(['Rua', 'Alameda', 'Avenida']) . ' ' . $this->faker->randomElement(['das Flores', 'Estádio', 'Centro']), 
+            'numero' => $this->faker->numerify('####'), 
+            'bairro' => $this->faker->randomElement(['Centro', 'Jardim das flores', 'Jardins', 'Moema', 'Bandeirantes']), 
+            'cidade' => $this->faker->city, 
+            'estado' => $this->faker->stateAbbr, 
+            'complemento' => $this->faker->optional()->sentence, 
             'observacao' => $this->faker->optional()->realText, 
         ];
     }

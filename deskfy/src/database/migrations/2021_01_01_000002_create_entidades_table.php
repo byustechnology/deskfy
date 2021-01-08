@@ -15,8 +15,18 @@ class CreateEntidadesTable extends Migration
     {
         Schema::create('entidades', function (Blueprint $table) {
             $table->id();
+            $table->char('tipo')->default('j');
             $table->string('codigo')->unique();
             $table->string('titulo');
+            $table->string('documento')->unique();
+            $table->string('responsavel');
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('numero');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->char('estado');
+            $table->string('complemento')->nullable();
 
             $table->text('observacao')->nullable();
             $table->timestamps();

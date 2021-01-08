@@ -6,25 +6,19 @@ use Deskfy\Traits\HasFactory;
 use Deskfy\Traits\HasFilters;
 use Illuminate\Database\Eloquent\Model;
 
-class Servico extends Model
+class CobrancaArquivo extends Model
 {
     use HasFactory, HasFilters;
 
     protected $guarded = [];
 
-    public function entidade()
-    {
-        return $this->belongsTo(Entidade::class);
-    }
-
-    public function cobrancas()
+    public function cobranca()
     {
         return $this->belongsTo(Cobranca::class);
     }
 
     public function path()
     {
-        return config('deskfy.path') . '/servico/' . $this->id;
+        return $this->cobranca->path() . '/arquivo/' . $this->id;
     }
-
 }

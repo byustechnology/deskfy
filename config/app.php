@@ -174,12 +174,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
 
         /*
          * Deskfy Service Providers...
          */
-        Deskfy\Providers\DeskfyServiceProvider::class
-        
+        Deskfy\Providers\DeskfyServiceProvider::class, 
+        Breath\Providers\BreathServiceProvider::class
+
     ],
 
     /*

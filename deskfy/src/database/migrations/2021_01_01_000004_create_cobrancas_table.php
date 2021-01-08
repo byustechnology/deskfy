@@ -15,10 +15,13 @@ class CreateCobrancasTable extends Migration
     {
         Schema::create('cobrancas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('servico_id')->nullable()->constrained();
-            
+            $table->foreignId('empresa_id')->constrained();
+            $table->foreignId('entidade_id')->constrained();
             $table->string('titulo');
-
+            $table->text('descricao');
+            $table->bigInteger('valor');
+            $table->date('vence_em');
+            $table->date('pago_em')->nullable();
             $table->text('observacao')->nullable();
             $table->timestamps();
         });

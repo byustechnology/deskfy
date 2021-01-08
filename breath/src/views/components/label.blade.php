@@ -1,0 +1,1 @@
+{!! Form::label($attribute, $name, ['class' => 'form-label fw-bold']) !!}
