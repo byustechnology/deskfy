@@ -7,22 +7,19 @@ use Illuminate\Support\Str;
 
 class Input extends Component
 {
-    public $name;
+    public $attribute;
 
     public $value;
 
     public $type;
-
-    public $attribute;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $attribute, $value, $type)
+    public function __construct($attribute, $value, $type)
     {
-        $this->name = $name;
         $this->value = $value;
         $this->type = $type;
         $this->attribute = $attribute;
@@ -35,10 +32,6 @@ class Input extends Component
      */
     public function render()
     {
-        if ($type == 'textarea') {
-            return view('breath::components.textarea');
-        }
-
         return view('breath::components.input');
     }
 }

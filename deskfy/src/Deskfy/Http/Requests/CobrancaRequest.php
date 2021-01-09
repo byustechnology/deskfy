@@ -29,6 +29,6 @@ class CobrancaRequest extends FormRequest
             'descricao' => 'required', 
             'valor' => 'required|numeric', 
             'vence_em' => 'required|date|after_or_equal:now', 
-        ]
+        ];
     }
 }

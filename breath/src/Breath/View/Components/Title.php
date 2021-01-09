@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class Title extends Component
 {
+    public $breadcrumbs;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($breadcrumbs = null)
     {
-        //
+        $this->breadcrumbs = $breadcrumbs;
     }
 
     /**

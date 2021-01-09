@@ -42,8 +42,8 @@ class CobrancaPaga extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->markdown('deskfy::mails.entidade');
-                    // ->line('Notificação de vencimento próximos.')
+                    ->markdown('deskfy::mails.entidade.cobranca-paga')
+                    ->line('Fatura paga!');
                     // ->action('Acompanhar', url('/'))
                     // ->line('Obrigado pela sua colaboração!');
                     

@@ -1,0 +1,1 @@
+{!! Form::number($attribute, null, ['class' => 'form-control shadow-sm', 'step' => 'any', 'autocomplete' => 'off']) !!}

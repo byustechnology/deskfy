@@ -15,7 +15,7 @@ class CreateServicosTable extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('entidade_id')->constrained();
+            $table->foreignId('entidade_id')->constrained()->onDelete('cascade');
             $table->string('titulo');
 
             $table->text('observacao')->nullable();

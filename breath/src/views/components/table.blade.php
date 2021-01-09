@@ -1,6 +1,6 @@
 @if ( ! $resource->isEmpty())
 <div class="table-responsive">
-    <table {{ $attributes->merge(['class' => 'table']) }}>
+    <table {{ $attributes->merge(['class' => 'table align-middle']) }}>
 
         @if (isset($header))
             <thead>
@@ -23,5 +23,5 @@
     </table>
 </div>
 @else
-    <x-breath::alert/>
+    <x-breath::alert icon="fas fa-exclamation-circle" message="Nenhum registro encontrado."/>
 @endif

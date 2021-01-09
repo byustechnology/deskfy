@@ -26,7 +26,7 @@ class EntidadeFilters extends Filters
 
     protected function auto($auto)
     {
-        // ...
+        return $this->builder->where('titulo', 'like', '%' . $auto . '%')->orWhere('documento', 'like', '%' . $auto . '%');
     }
 
 }

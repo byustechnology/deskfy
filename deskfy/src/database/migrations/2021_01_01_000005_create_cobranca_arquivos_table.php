@@ -15,7 +15,7 @@ class CreateCobrancaArquivosTable extends Migration
     {
         Schema::create('cobranca_arquivos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cobranca_id')->constrained();
+            $table->foreignId('cobranca_id')->constrained()->onDelete('cascade');
             $table->string('caminho');
             $table->string('arquivo');
             $table->text('observacao')->nullable();

@@ -27,4 +27,16 @@ class Entidade extends Model
         return config('deskfy.path') . '/entidade/' . $this->id;
     }
 
+    /**
+     * Remove qualquer caractér que 
+     * não seja número do campo documento.
+     * 
+     * @param  string  $value
+     * @return integer
+     */
+    public function setDocumentoAttribute($value)
+    {
+        $this->attributes['documento'] = preg_replace('/\D/', '', $value);
+    }
+
 }

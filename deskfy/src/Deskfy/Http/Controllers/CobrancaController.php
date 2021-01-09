@@ -43,7 +43,7 @@ class CobrancaController extends Controller
         $cobranca = (new Cobranca)->fill($request->all());
         $cobranca->save();
 
-        session()->flash('flash_success', 'Cobranca <a href="' . url($cobranca->path()) . '">' . $cobranca->titulo . '</a> criada com sucesso!');
+        session()->flash('flash_success', 'Cobrança <a href="' . url($cobranca->path()) . '">' . $cobranca->titulo . '</a> criada com sucesso!');
         return redirect($cobranca->path());
     }
 
@@ -81,7 +81,7 @@ class CobrancaController extends Controller
         $cobranca->fill($request->all());
         $cobranca->update();
 
-        session()->flash('flash_success', 'Cobranca <a href="' . url($cobranca->path()) . '">' . $cobranca->titulo . '</a> alterada com sucesso!');
+        session()->flash('flash_success', 'Cobrança <a href="' . url($cobranca->path()) . '">' . $cobranca->titulo . '</a> alterada com sucesso!');
         return redirect($cobranca->path());
     }
 
@@ -94,7 +94,7 @@ class CobrancaController extends Controller
     public function destroy(Cobranca $cobranca)
     {
         $cobranca->delete();
-        session()->flash('flash_danger', 'Cobranca <a href="' . url($cobranca->path()) . '">' . $empresa->titulo . '</a> removida com sucesso!');
+        session()->flash('flash_danger', 'Cobrança ' . $cobranca->titulo . ' removida com sucesso!');
         return back();
     }
 }

@@ -27,15 +27,15 @@ class EntidadeRequest extends FormRequest
     {
         return [
             'tipo' => ['required', Rule::in(array_keys(Entidade::TIPOS))], 
-            'codigo' => ['required', Rule::unique('entidades')->ignore($entidade->id)], 
+            'codigo' => ['required', Rule::unique('entidades')->ignore(optional(request('entidade'))->id)], 
             'titulo' => 'required', 
-            'documento' => ['required', Rule::unique('entidades')->ignore($entidade->id)], 
+            'documento' => ['required', Rule::unique('entidades')->ignore(optional(request('entidade'))->id)], 
             'responsavel' => 'required', 
             'cep' => 'required', 
             'endereco' => 'required', 
             'bairro' => 'required', 
             'cidade' => 'required', 
             'estado' => 'required'
-        ]
+        ];
     }
 }

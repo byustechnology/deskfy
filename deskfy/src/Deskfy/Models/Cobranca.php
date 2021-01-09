@@ -2,6 +2,7 @@
 
 namespace Deskfy\Models;
 
+use Deskfy\BaixarCobranca;
 use Deskfy\Traits\HasFactory;
 use Deskfy\Traits\HasFilters;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,24 @@ class Cobranca extends Model
 {
     use HasFactory, HasFilters;
 
+    const REPETIR_POR_CONDICOES = [
+        'd' => 'Dia(s)', 
+        'm' => 'Mês(es)', 
+        'a' => 'Ano(s)', 
+    ];
+
+    const REPETIR_A_CADA_CONDICOES = [
+        'd' => 'Dia(s)', 
+        'm' => 'Mês(es)', 
+        'a' => 'Ano(s)', 
+    ];
+
     protected $guarded = [];
+
+    protected $dates = [
+        'vence_em', 
+        'pago_em', 
+    ];
 
     public function empresa()
     {
@@ -68,6 +86,18 @@ class Cobranca extends Model
     }
 
     /**
+     * Retorna todas as cobranças 
+     * que são recorrentes
+     * 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeRecorrentes($query)
+    {
+        return $query->where('recorrente', true);
+    }
+
+    /**
      * Converte o valor para 
      * centavos, antes de salvar 
      * o recurso na base de dados.
@@ -76,7 +106,7 @@ class Cobranca extends Model
      */
     public function setValorAttribute($value)
     {
-        $this->attributes['valor'] = $value * 100;
+        $this->attributes['valor'] = preg_replace('/\D/', '', $value);
     }
 
     /**

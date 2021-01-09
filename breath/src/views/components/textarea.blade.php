@@ -1,0 +1,1 @@
+{!! Form::textarea($attribute, $value, ['class' => 'form-control', 'rows' => 3]) !!}

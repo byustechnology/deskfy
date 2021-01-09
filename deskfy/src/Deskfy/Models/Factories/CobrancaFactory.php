@@ -64,4 +64,54 @@ class CobrancaFactory extends Factory
             ];
         });
     }
+
+    public function recorrente()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'recorrente' => true, 
+                'repetir_por' => $this->faker->randomDigit, 
+                'repetir_por_condicao' => $this->faker->randomElement(array_keys(Cobranca::REPETIR_POR_CONDICOES)), 
+                'repetir_a_cada' => $this->faker->randomDigit, 
+                'repetir_a_cada_condicao' => $this->faker->randomElement(array_keys(Cobranca::REPETIR_A_CADA_CONDICOES))
+            ];
+        });
+    }
+
+    public function mensalmente()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'repetir_por' => 1, 
+                'repetir_por_condicao' => 'm', 
+                'repetir_a_cada' => 1, 
+                'repetir_a_cada_condicao' => 'm'
+            ];
+        });
+    }
+
+    public function trimestralmente()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'repetir_por' => 1, 
+                'repetir_por_condicao' => 'm', 
+                'repetir_a_cada' => 3, 
+                'repetir_a_cada_condicao' => 'm'
+            ];
+        });
+    }
+
+    public function anualmente()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'recorrente' => true, 
+                'repetir_por' => 1, 
+                'repetir_por_condicao' => 'a', 
+                'repetir_a_cada' => 1, 
+                'repetir_a_cada_condicao' => 'a'
+            ];
+        });
+    }
 }

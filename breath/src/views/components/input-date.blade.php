@@ -1,0 +1,1 @@
+{!! Form::date($attribute, null, ['class' => 'form-control shadow-sm', 'autocomplete' => 'off']) !!}

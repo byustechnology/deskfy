@@ -7,11 +7,11 @@ use Illuminate\Support\Str;
 
 class Select extends Component
 {
-    public $name;
-
     public $value;
 
     public $type;
+
+    public $list;
 
     public $attribute;
 
@@ -20,11 +20,10 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct($name, $attribute, $value, $type)
+    public function __construct($attribute, $value, $list)
     {
-        $this->name = $name;
         $this->value = $value;
-        $this->type = $type;
+        $this->list = $list;
         $this->attribute = $attribute;
     }
 

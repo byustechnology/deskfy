@@ -12,7 +12,7 @@
           <ul class="dropdown-menu shadow">
 
             {!! Form::open(['url' => config('deskfy.path') . '/entidade', 'method' => 'get', 'class' => 'px-2']) !!}
-              {!! Form::text('keyword', null, ['class' => 'form-control', 'placeholder' => 'Buscar...']) !!}
+              {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Buscar...', 'autocomplete' => 'off']) !!}
               {!! Form::hidden('campo', 'auto') !!}
             {!! Form::close() !!}
             <li><hr class="dropdown-divider"></li>
@@ -25,7 +25,7 @@
           <ul class="dropdown-menu shadow">
 
             {!! Form::open(['url' => config('deskfy.path') . '/cobranca', 'method' => 'get', 'class' => 'px-2']) !!}
-              {!! Form::text('keyword', null, ['class' => 'form-control', 'placeholder' => 'Buscar...']) !!}
+              {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Buscar...', 'autocomplete' => 'off']) !!}
               {!! Form::hidden('campo', 'auto') !!}
             {!! Form::close() !!}
             <li><hr class="dropdown-divider"></li>

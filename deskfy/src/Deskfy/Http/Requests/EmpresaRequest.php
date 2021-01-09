@@ -25,9 +25,9 @@ class EmpresaRequest extends FormRequest
     public function rules()
     {
         return [
-            'codigo' => ['required', Rule::unique('empresas')->ignore($empresa->id)], 
+            'codigo' => ['required', Rule::unique('empresas')->ignore(optional(request('empresa'))->id)], 
             'titulo' => 'required', 
-            'documento' => ['required', Rule::unique('empresas')->ignore($empresa->id)], 
+            'documento' => ['required', Rule::unique('empresas')->ignore(optional(request('empresa'))->id)], 
             'cep' => 'required', 
             'endereco' => 'required', 
             'bairro' => 'required', 
@@ -35,6 +35,6 @@ class EmpresaRequest extends FormRequest
             'estado' => 'required', 
             'email' => 'required|email', 
             'telefone' => 'required', 
-        ]
+        ];
     }
 }

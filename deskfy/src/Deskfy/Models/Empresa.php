@@ -17,4 +17,16 @@ class Empresa extends Model
         return config('deskfy.path') . '/empresa/' . $this->id;
     }
 
+    /**
+     * Remove qualquer caractér que 
+     * não seja número do campo documento.
+     * 
+     * @param  string  $value
+     * @return integer
+     */
+    public function setDocumentoAttribute($value)
+    {
+        $this->attributes['documento'] = preg_replace('/\D/', '', $value);
+    }
+
 }

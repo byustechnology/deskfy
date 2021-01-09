@@ -1,4 +1,12 @@
 <div class="row">
+    <div class="col-lg-3">
+        <x-breath::form-element name="Código">
+            <x-slot name="hint">Informe um código para a sua empresa. <strong class="text-danger">O código deve ser único</strong></x-slot>
+        </x-breath>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-lg-8">
         <x-breath::form-element name="Título da empresa" attribute="titulo">
             <x-slot name="hint">Digite o título da sua empresa (Razão social)</x-slot>
@@ -67,3 +75,5 @@
 <x-breath::form-element name="Observações" attribute="observacao" type="textarea">
     <x-slot name="hint">Utilize este campo para informar observações internas da empresa. <strong class="text-success">Este campo é opcional</strong></x-slot>
 </x-breath>
+
+<button type="submit" class="btn btn-success btn-lg">{{ $submit_text ?? 'Salvar' }}</button>

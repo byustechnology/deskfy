@@ -7,7 +7,7 @@
             <tr>
                 <th>Título</th>
                 <th>Endereço</th>
-                <th>Ações</th>
+                <th class="text-center">Ações</th>
             </tr>
         </x-slot>
 
@@ -22,6 +22,12 @@
                         {{ $empresa->endereco }}, {{ $empresa->numero }}<br>
                         <small class="text-muted">{{ $empresa->bairro }} - {{ $empresa->cidade }}/{{ $empresa->estado }}</small>
                     </td>
+                    <x-breath::table-action>
+                        {!! Form::open(['url' => $empresa->path(), 'method' => 'delete']) !!}
+                            <a href="{{ url($empresa->path() . '/edit') }}" class="btn btn-link btn-sm"><i class="far fa-edit fa-fw"></i></a>
+                            <button type="submit" class="btn btn-link btn-sm text-danger"><i class="far fa-trash-alt fa-fw"></i></button>
+                        {!! Form::close() !!}
+                    </x-breath>
                 </tr>
             @endforeach
         </x-slot>

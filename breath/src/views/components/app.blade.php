@@ -16,12 +16,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <style>
             body { font-family: 'Inter'; font-size: .85rem; }
 
             .dropdown-menu { font-size: .8rem; }
+
+            .breath-table-action {
+                text-align: center;
+            }
+
+            .table { white-space:nowrap; }
         </style>
 
         <!-- Scripts -->
@@ -32,6 +39,10 @@
             <!-- Header -->
             <x-breath::header/>
 
+            <!-- App errors -->
+            <x-breath::app-errors/>
+            <x-breath::app-messages/>
+            
             <!-- Main content -->
             <main>
                 <div class="container my-4">
