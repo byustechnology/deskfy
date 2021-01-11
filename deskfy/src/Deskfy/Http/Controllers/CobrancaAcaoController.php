@@ -28,7 +28,7 @@ class CobrancaAcaoController extends Controller
             }
 
             // Envia uma notificação
-            Notification::route('mail', 'john@john.com')
+            Notification::route('mail', $cobranca->entidade->emails()->pluck('valor')->toArray())
                 ->notify(new CobrancaPaga($cobranca));
 
         } catch (Exception $e) {

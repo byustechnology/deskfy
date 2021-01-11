@@ -22,6 +22,16 @@ class Entidade extends Model
         return $this->hasMany(Cobranca::class);
     }
 
+    public function emails()
+    {
+        return $this->hasMany(EntidadeEmail::class);
+    }
+
+    public function telefones()
+    {
+        return $this->hasMany(EntidadeTelefone::class);
+    }
+
     public function path()
     {
         return config('deskfy.path') . '/entidade/' . $this->id;

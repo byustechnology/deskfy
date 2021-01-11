@@ -94,7 +94,7 @@ class EntidadeController extends Controller
     public function destroy(Entidade $entidade)
     {
         $entidade->delete();
-        session()->flash('flash_danger', 'Entidade <a href="' . url($entidade->path()) . '">' . $empresa->titulo . '</a> removida com sucesso!');
+        session()->flash('flash_danger', 'Entidade <a href="' . url($entidade->path()) . '">' . $entidade->titulo . '</a> removida com sucesso!');
         return back();
     }
 }

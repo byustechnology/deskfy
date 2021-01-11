@@ -11,7 +11,7 @@
                 <th>Vence em</th>
                 <th>Pago em</th>
                 <th><i class="fas fa-infinity fa-fw fa-sm"></i></th>
-                <th class="text-center">Ações</th>
+                <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
             </tr>
         </x-slot>
         <x-slot name="body">

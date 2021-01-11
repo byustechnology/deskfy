@@ -7,7 +7,7 @@
             <tr>
                 <th>Título</th>
                 <th>Endereço</th>
-                <th class="text-center">Ações</th>
+                <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
             </tr>
         </x-slot>
 

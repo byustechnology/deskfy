@@ -3,20 +3,23 @@
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca-show', $cobranca)">{{ $cobranca->titulo }}</x-breath>
 
     <a href="{{ url($cobranca->path() . '/baixar') }}">Confirmar pagamento</a>
-    <a data-bs-toggle="modal" data-bs-target="#m-arquivo">Anexar arquivos</a>
 
     <x-breath::attribute title="Título" :value="$cobranca->titulo"/>
     <x-breath::attribute-date title="Vencimento" :value="$cobranca->vence_em"/>
     <x-breath::attribute-number title="Valor" :value="$cobranca->valor" prepend="R$"/>
-    
-    <div class="card card-body">
+
+    <x-breath::card title="Arquivos da cobrança">
+        <x-slot name="actions">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#m-arquivo" class="btn btn-primary btn-sm">Adicionar arquivo</a>
+        </x-slot>
+
         <x-breath::table :resource="$cobranca->arquivos">
             <x-slot name="header">
                 <tr>
                     <th>Título</th>
                     <th>Caminho</th>
                     <th>Adicionado em</th>
-                    <th class="text-center">Ações</th>
+                    <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
             </x-slot>
 
@@ -38,7 +41,7 @@
                 @endforeach
             </x-slot>
         </x-breath>
-    </div>
+    </x-breath>
 
 </x-breath>
 
