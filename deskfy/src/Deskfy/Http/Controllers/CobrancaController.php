@@ -18,7 +18,7 @@ class CobrancaController extends Controller
      */
     public function index(CobrancaFilters $filters)
     {
-        $cobrancas = Cobranca::filter($filters)->paginate();
+        $cobrancas = Cobranca::filter($filters)->ordenado()->paginate();
         return view('deskfy::cobranca.index', compact('cobrancas'));
     }
 

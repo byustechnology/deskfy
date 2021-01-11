@@ -52,6 +52,18 @@ class Cobranca extends Model
     }
 
     /**
+     * Define uma ordenação padrão 
+     * para os registros
+     * 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOrdenado($query)
+    {
+        return $query->orderBy('vence_em');
+    }
+
+    /**
      * Retorna todas as cobranças 
      * que estão em aberto no sistema.
      * 

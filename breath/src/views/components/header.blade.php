@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url(config('deskfy.path')) }}">{{ config('app.name') }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop">
+      <i class="fas fa-bars fa-fw"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarTop">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,7 +35,7 @@
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas') }}">Em aberto</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=pagas') }}">Pagas</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=vencidas') }}">Vencidas</a></li>
-            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas&data=vence_em') }}">A vencer (15 dias)</a></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas&data=vence_em&inicio=' . today()->format('Y-m-d') . '&termino=' . today()->addDays(15)->format('Y-m-d')) }}">A vencer (15 dias)</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="{{ url(config('deskfy.path') . '/empresa') }}">Empresa</a></li>

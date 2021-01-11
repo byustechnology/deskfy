@@ -1,2 +1,3 @@
 # Todo list
 - [ ] Padronizar os forms inputs do pacote Breath;
+- [ ] Importar os pacotes (Bootstrap, FontAwesome, Google Fonts) para a aplicação (Ex: via NPM);

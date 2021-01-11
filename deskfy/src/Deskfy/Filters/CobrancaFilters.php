@@ -13,6 +13,8 @@ class CobrancaFilters extends Filters
         'keyword',
         'auto',
         'status', 
+        'inicio', 
+        'termino'
     ];
 
     /**
@@ -28,6 +30,16 @@ class CobrancaFilters extends Filters
     protected function auto($auto)
     {
         return $this->builder->where('titulo', 'like', '%' . $auto . '%');
+    }
+
+    protected function inicio($inicio)
+    {
+        return $this->builder->where($this->request->data, '>=', $inicio);
+    }
+
+    protected function termino($termino)
+    {
+        return $this->builder->where($this->request->data, '<=', $termino);
     }
 
     protected function status($status)
