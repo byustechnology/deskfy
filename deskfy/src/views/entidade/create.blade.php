@@ -1,3 +1,4 @@
+@section('title', 'Adicionar - Entidades')
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-entidade-create')">Adicionar entidade</x-breath>

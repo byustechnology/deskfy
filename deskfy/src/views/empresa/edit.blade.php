@@ -1,3 +1,5 @@
+@section('title', 'Editar - ' . $empresa->titulo . ' - Minha empresa')
+
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-empresa-edit', $empresa)">Editar empresa {{ $empresa->titulo }}</x-breath>

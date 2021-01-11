@@ -1,1 +1,1 @@
-{!! Form::text($attribute, null, ['class' => 'form-control shadow-sm', 'autocomplete' => 'off']) !!}
+{!! Form::text($attribute, $value, ['class' => 'form-control shadow-sm', 'autocomplete' => 'off']) !!}

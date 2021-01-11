@@ -12,9 +12,9 @@ class BaixarCobranca
      *
      * @return void
      */
-    public static function perform(Cobranca $cobranca)
+    public static function perform(Cobranca $cobranca, $paga_em = null)
     {
-        return (new static)->handle($cobranca);
+        return (new static)->handle($cobranca, $paga_em);
     }
 
     /**
@@ -22,13 +22,13 @@ class BaixarCobranca
      *
      * @return void
      */
-    public function handle(Cobranca $cobranca)
+    public function handle(Cobranca $cobranca, $paga_em = null)
     {
-        if ( ! empty($cobranca->pago_em)) {
+        if ( ! empty($cobranca->paga_em)) {
             throw new DeskfyException('A cobrança já foi baixada');
         }
 
-        $cobranca->pago_em = $data ?? now();
+        $cobranca->paga_em = $paga_em ?? now();
         $cobranca->update();
     }
 }

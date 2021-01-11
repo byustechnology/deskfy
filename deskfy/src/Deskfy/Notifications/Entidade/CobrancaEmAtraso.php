@@ -12,14 +12,16 @@ class CobrancaEmAtraso extends Notification
 {
     use Queueable;
 
+    protected $cobranca;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Cobranca $cobranca)
     {
-        //
+        $this->cobranca = $cobranca;
     }
 
     /**
@@ -42,10 +44,8 @@ class CobrancaEmAtraso extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->markdown('deskfy::mails.entidade');
-                    // ->line('Notificação de vencimento próximos.')
-                    // ->action('Acompanhar', url('/'))
-                    // ->line('Obrigado pela sua colaboração!');
+            ->markdown('deskfy::mails.entidade.cobranca-em-atraso');
+            ->subject(config('app.name') . ' - Cobrança pendente - ' . $this->cobranca->titulo)
                     
     }
 

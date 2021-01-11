@@ -30,7 +30,7 @@ class CobrancaFactory extends Factory
             'descricao' => $this->faker->realText, 
             'valor' => $this->faker->numberBetween(1000, 100000), 
             'vence_em' => $this->faker->dateTimeBetween('+1 day', '+60 days'), 
-            'pago_em' => $this->faker->optional()->dateTimeBetween('-20 days', '-1 days'), 
+            'paga_em' => $this->faker->optional()->dateTimeBetween('-20 days', '-1 days'), 
             'observacao' => $this->faker->optional()->realText, 
         ];
     }
@@ -39,7 +39,7 @@ class CobrancaFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'pago_em' => null,
+                'paga_em' => null,
                 'vence_em' => $this->faker->dateTimeBetween('+1 day', '+30 days')
             ];
         });
@@ -49,7 +49,7 @@ class CobrancaFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'pago_em' => $this->faker->dateTimeBetween('-30 days', '-1 day'),
+                'paga_em' => $this->faker->dateTimeBetween('-30 days', '-1 day'),
                 'vence_em' => $this->faker->dateTimeBetween('-2 day', '-1 days')
             ];
         });
@@ -59,8 +59,17 @@ class CobrancaFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'pago_em' => null,
+                'paga_em' => null,
                 'vence_em' => $this->faker->dateTimeBetween('-30 day', '-1 days')
+            ];
+        });
+    }
+
+    public function enviada()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'enviado_em' => today(), 
             ];
         });
     }

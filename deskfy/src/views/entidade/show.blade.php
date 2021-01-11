@@ -1,3 +1,4 @@
+@section('title', $entidade->titulo . ' - Entidades')
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-entidade-show', $entidade)">{{ $entidade->titulo }}</x-breath>

@@ -12,14 +12,19 @@ class CobrancaPaga extends Notification
 {
     use Queueable;
 
+    protected $cobranca;
+
+    protected $cobrancaRecorrente;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Cobranca $cobranca, $cobrancaRecorrente = null)
     {
-        //
+        $this->cobranca = $cobranca;
+        $this->cobrancaRecorrente = $cobrancaRecorrente;
     }
 
     /**
@@ -42,11 +47,11 @@ class CobrancaPaga extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->markdown('deskfy::mails.entidade.cobranca-paga')
-                    ->line('Fatura paga!');
-                    // ->action('Acompanhar', url('/'))
-                    // ->line('Obrigado pela sua colaboração!');
-                    
+            ->markdown('deskfy::mails.entidade.cobranca-paga', [
+                'cobranca' => $this->cobranca, 
+                'cobrancaRecorrente' => $this->cobrancaRecorrente, 
+            ])
+            ->subject(config('app.name') . ' - Fatura paga! - ' . $this->cobranca->titulo);
     }
 
     /**

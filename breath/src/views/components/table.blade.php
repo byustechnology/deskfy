@@ -1,6 +1,6 @@
 @if ( ! $resource->isEmpty())
 <div class="table-responsive">
-    <table {{ $attributes->merge(['class' => 'table align-middle']) }}>
+    <table {{ $attributes->merge(['class' => 'table align-middle mb-0']) }}>
 
         @if (isset($header))
             <thead>

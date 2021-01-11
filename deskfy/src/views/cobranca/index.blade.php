@@ -1,3 +1,5 @@
+@section('title', 'Cobranças')
+
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca')">Cobranças</x-breath>
@@ -31,9 +33,9 @@
                         <small class="text-muted">{{ $cobranca->vence_em->diffForHumans() }}</small>
                     </td>
                     <td>
-                        @if ( ! empty($cobranca->pago_em))
-                            {{ $cobranca->pago_em->format('d/m/Y') }}<br>
-                            <small class="text-muted">{{ $cobranca->pago_em->diffForHumans() }}</small>
+                        @if ( ! empty($cobranca->paga_em))
+                            {{ $cobranca->paga_em->format('d/m/Y') }}<br>
+                            <small class="text-muted">{{ $cobranca->paga_em->diffForHumans() }}</small>
                         @else
                             <small class="text-muted">Não efetuado</small>
                         @endif

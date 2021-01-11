@@ -1,3 +1,4 @@
+@section('title', 'Editar - ' . $cobranca->titulo . ' - Cobranças')
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca-edit', $cobranca)">Editar cobrança {{ $cobranca->titulo }}</x-breath>

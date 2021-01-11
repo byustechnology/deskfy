@@ -1,3 +1,4 @@
+@section('title', 'Minha empresa')
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-empresa')">Minha empresa</x-breath>

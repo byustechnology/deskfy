@@ -27,7 +27,8 @@ class Cobranca extends Model
 
     protected $dates = [
         'vence_em', 
-        'pago_em', 
+        'paga_em', 
+        'enviada_em', 
     ];
 
     public function empresa()
@@ -59,7 +60,7 @@ class Cobranca extends Model
      */
     public function scopeAbertas($query)
     {
-        return $query->whereNull('pago_em')->whereDate('vence_em', '>=', today());
+        return $query->whereNull('paga_em')->whereDate('vence_em', '>=', today());
     }
     /**
      * Retorna todas as cobranças 
@@ -70,7 +71,7 @@ class Cobranca extends Model
      */
     public function scopePagas($query)
     {
-        return $query->whereNotNull('pago_em');
+        return $query->whereNotNull('paga_em');
     }
 
     /**
@@ -82,7 +83,7 @@ class Cobranca extends Model
      */
     public function scopeVencidas($query)
     {
-        return $query->whereNull('pago_em')->whereDate('vence_em', '<', today());
+        return $query->whereNull('paga_em')->whereDate('vence_em', '<', today());
     }
 
     /**

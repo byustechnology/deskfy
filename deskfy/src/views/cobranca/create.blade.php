@@ -1,3 +1,4 @@
+@section('title', 'Adicionar - Cobranças')
 <x-breath::app>
 
     <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca-create')">Adicionar cobrança</x-breath>

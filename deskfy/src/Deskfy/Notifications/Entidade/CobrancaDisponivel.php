@@ -12,14 +12,16 @@ class CobrancaDisponivel extends Notification
 {
     use Queueable;
 
+    protected $cobranca;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Cobranca $cobranca)
     {
-        //
+        $this->cobranca = $cobranca;
     }
 
     /**
@@ -41,11 +43,18 @@ class CobrancaDisponivel extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->markdown('deskfy::mails.entidade');
-                    // ->line('Notificação de vencimento próximos.')
-                    // ->action('Acompanhar', url('/'))
-                    // ->line('Obrigado pela sua colaboração!');
+        $mail = (new MailMessage)
+            ->markdown('deskfy::mails.entidade.cobranca-disponivel', [
+                'cobranca' => $this->cobranca, 
+                'arquivos' => $this->cobranca->arquivos()->whereNotNull('observacao')->get()
+            ])
+            ->subject(config('app.name') . ' - Cobrança disponível - ' . $this->cobranca->titulo);
+
+        foreach ($this->cobranca->arquivos as $arquivo) {
+            $mail->attach(storage_path('app/') . $arquivo->caminho . $arquivo->arquivo);
+        }
+
+        return $mail;
                     
     }
 

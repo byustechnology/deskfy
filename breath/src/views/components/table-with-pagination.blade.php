@@ -1,4 +1,4 @@
-<x-breath::table :resource="$resource">
+<x-breath::table :resource="$resource" class="table-borderless table-striped table-hover">
 
     @if (isset($header))
         <x-slot name="header">

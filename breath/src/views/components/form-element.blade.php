@@ -25,6 +25,10 @@
             <x-breath::input :attribute="$attribute" :value="$value" :type="$type"/>
         @endif
 
+        @if ($type == 'checkbox')
+            <x-breath::checkbox :attribute="$attribute" :value="$value"/>
+        @endif
+
         {{ $append ?? null }}
     </div>
 

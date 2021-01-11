@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-3">
-        <x-breath::form-element name="Código">
+        <x-breath::input name="Código" attribute="codigo">
             <x-slot name="hint">Informe um código para a sua empresa. <strong class="text-danger">O código deve ser único</strong></x-slot>
         </x-breath>
     </div>

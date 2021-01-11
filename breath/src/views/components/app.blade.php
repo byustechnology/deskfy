@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title', 'Sistema de cobranças') - {{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -20,13 +20,24 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <style>
-            body { font-family: 'Inter'; font-size: .85rem; }
+            body {
+                font-family: 'Quicksand';
+                font-weight: 600;
+                font-size: .85rem;
+            }
+
+            .h1, .h2, .h3, .h4, .h5, .h6 { font-weight: 700; }
 
             .dropdown-menu { font-size: .8rem; }
 
             .breath-table-action {
                 text-align: center;
+                border-left: #ddd 2px solid;
             }
+
+            .breath-breadcrumbs { font-size: .75rem; }
+
+            hr { border-bottom: #ddd 2px solid; }
 
             .table { white-space:nowrap; }
         </style>

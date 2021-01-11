@@ -36,6 +36,6 @@ class CobrancaArquivo extends Model
 
     public function storagePath()
     {
-        return '';
+        return config('deskfy.path') . '/storage/' . $this->caminho . $this->arquivo;
     }
 }

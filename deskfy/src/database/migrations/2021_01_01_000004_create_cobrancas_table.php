@@ -21,7 +21,8 @@ class CreateCobrancasTable extends Migration
             $table->text('descricao');
             $table->bigInteger('valor');
             $table->date('vence_em');
-            $table->date('pago_em')->nullable();
+            $table->date('paga_em')->nullable();
+            $table->date('enviada_em')->nullable();
             $table->text('observacao')->nullable();
             $table->boolean('recorrente')->default(false);
             $table->unsignedInteger('repetir_a_cada')->nullable();
