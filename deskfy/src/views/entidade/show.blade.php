@@ -15,6 +15,8 @@
             <div class="col-lg-9"><x-breath::attribute title="Título" :value="$entidade->titulo"/></div>
             <div class="col-lg-3"><x-breath::attribute title="Código" :value="$entidade->codigo"/></div>
         </div>
+
+        <x-breath::attribute title="Documento" :value="$entidade->documento"/>
         
         <div class="row">
             <div class="col-lg-2"><x-breath::attribute title="CEP" :value="$entidade->cep"/></div>
@@ -48,7 +50,7 @@
                     <th>Vence em</th>
                     <th class="text-center"><i class="fas fa-check-circle fa-fw"></i></th>
                     <th class="text-end">Valor</th>
-                    <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                    <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
             </x-slot>
             <x-slot name="body">
@@ -82,7 +84,7 @@
                     <x-slot name="header">
                         <tr>
                             <th>Telefone</th>
-                            <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                            <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                         </tr>
                     </x-slot>
 
@@ -114,7 +116,7 @@
                     <x-slot name="header">
                         <tr>
                             <th>E-mail</th>
-                            <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                            <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                         </tr>
                     </x-slot>
 
