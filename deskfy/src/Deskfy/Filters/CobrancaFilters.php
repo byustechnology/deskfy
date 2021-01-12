@@ -14,7 +14,8 @@ class CobrancaFilters extends Filters
         'auto',
         'status', 
         'inicio', 
-        'termino'
+        'termino', 
+        'enviadas', 
     ];
 
     /**
@@ -40,6 +41,17 @@ class CobrancaFilters extends Filters
     protected function termino($termino)
     {
         return $this->builder->where($this->request->data, '<=', $termino);
+    }
+
+    protected function enviadas($enviadas)
+    {
+        if ($enviadas == 1) {
+            return $this->builder->whereNotNull('enviada_em');
+        }
+
+        if ($envidas == 0) {
+            return $this->builder->whereNull('enviada_em');
+        }
     }
 
     protected function status($status)

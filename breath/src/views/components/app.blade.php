@@ -44,8 +44,16 @@
                 border-left: #ddd 2px solid;
             }
 
+            .breath-table-action .btn {
+                font-size: 12px;
+                opacity: .6;
+            }
+            .breath-table-action .btn:hover {
+                opacity: 1;
+            }
+
             .breath-breadcrumbs {
-                font-size: .75rem;
+                font-size: .85rem;
                 text-transform: lowercase;
             }
             .breath-breadcrumbs a {
@@ -53,7 +61,7 @@
                 color: #333;
             }
 
-            .form-control { font-size: .9rem; }
+            .form-control { font-size: .9rem; font-weight: 600; }
 
             hr { background-color: #999; }
 

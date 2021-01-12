@@ -8,7 +8,7 @@
                 <small class="text-muted">Selecione os arquivos que você deseja anexar a esta cobrança. Os arquivos não devem ser maiores que 1MB.</small>
             </div>
 
-            <x-breath::form-element name="Observações" attribute="observacao" type="textarea">
+            <x-breath::textarea label="Observações" attribute="observacao" type="textarea">
                 <x-slot name="hint">Utilize este campo para adicionar comentários aos arquivos enviados. Estes comentários serão disponibilizados nas notificações de cobranças, e podem servir para explicar a referência de cada arquivo. Ex: Nota fiscais.</x-slot>
             </x-breath>
         </div>

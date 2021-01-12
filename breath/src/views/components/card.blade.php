@@ -1,5 +1,5 @@
 <div class="card my-3 border-0">
-    <div class="card-body shadow-sm">
+    <div class="card-body shadow-sm p-4">
         
         @if ( ! empty($title))
         <div class="d-flex align-items-center justify-content-between">

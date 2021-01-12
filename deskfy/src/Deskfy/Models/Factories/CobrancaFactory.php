@@ -26,7 +26,7 @@ class CobrancaFactory extends Factory
         return [
             'empresa_id' => Empresa::factory(), 
             'entidade_id' => Entidade::factory(), 
-            'titulo' => $this->faker->sentence(3), 
+            'titulo' => $this->faker->randomElement(['Hospedagem', 'Renovação de domínio', 'Desenvolvimento de sistema']) . ' - ' . $this->faker->domainName,  
             'descricao' => $this->faker->realText, 
             'valor' => $this->faker->numberBetween(1000, 100000), 
             'vence_em' => $this->faker->dateTimeBetween('+1 day', '+60 days'), 

@@ -3,12 +3,12 @@
 
         <div class="modal-body">
             <div class="mb-3">
-                <x-breath::form-element name="Digite o telefone" attribute="valor">
+                <x-breath::input name="Digite o telefone" attribute="valor">
                     <x-slot name="hint">Informe o e-mail que será cadastrado. <strong class="text-success">Preencha também o código da área (DDD) para o telefone</strong></x-slot>
                 </x-breath>
             </div>
 
-            <x-breath::form-element name="Observações" attribute="observacao" type="textarea">
+            <x-breath::textarea name="Observações" attribute="observacao">
                 <x-slot name="hint">Utilize este campo para adicionar observações referentes ao telefone.</x-slot>
             </x-breath>
         </div>

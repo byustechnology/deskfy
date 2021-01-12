@@ -9,9 +9,10 @@
         <x-slot name="actions">
             <a href="#" data-bs-toggle="dropdown" class="btn btn-sm btn-outline-secondary"><i class="fas fa-filter fa-fw me-2"></i>Filtros</a>
             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-                <li><a href="#" class="dropdown-item">Cobranças vencidas</a></li>
-                <li><a href="#" class="dropdown-item">À vencer este mês</a></li>
-                <li><a href="#" class="dropdown-item">Pagas este mês</a></li>
+                <li><a href="{{ url(request()->url() . '?status=vencidas') }}" class="dropdown-item">Cobranças vencidas</a></li>
+                <li><a href="{{ url(request()->url() . '?status=abertas&data=vence_em&inicio=' . today()->startOfMonth()->format('Y-m-d') . '&termino=' . today()->endOfMonth()->format('Y-m-d')) }}" class="dropdown-item">À vencer este mês</a></li>
+                <li><a href="{{ url(request()->url() . '?status=pagas&data=paga_em&inicio=' . today()->startOfMonth()->format('Y-m-d') . '&termino=' . today()->endOfMonth()->format('Y-m-d')) }}" class="dropdown-item">Pagas este mês</a></li>
+                <li><a href="{{ url(request()->url() . '?enviadas=0') }}" class="dropdown-item">Não enviadas as entidades</a></li>
             </ul>
             <a href="#" data-bs-toggle="modal" data-bs-target="#m-pesquisar" class="btn btn-sm btn-outline-primary"><i class="fas fa-search fa-fw me-2"></i>Pesquisar</a>
             @if (request()->query())
@@ -57,10 +58,11 @@
                         </td>
 
                         @if ($cobranca->recorrente)
-                            <td class="text-center" title="Repete por {{ $cobranca->repetir_por }} {{ Deskfy\Models\Cobranca::REPETIR_POR_CONDICOES[$cobranca->repetir_por_condicao] }} a cada {{ $cobranca->repetir_a_cada }} {{ Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] }}"><i class="fas fa-infinity fa-fw fa-sm text-success"></i></td>
+                            <td class="text-center" title="Repete a cada {{ $cobranca->repetir_a_cada }} {{ Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] }}"><i class="fas fa-infinity fa-fw fa-sm text-success"></i></td>
                         @else
                             <td class="text-center"><i class="fas fa-infinity fa-fw fa-sm text-light"></i></td>
                         @endif
+                        
                         <x-breath::table-action>
                             {!! Form::open(['url' => $cobranca->path(), 'method' => 'delete']) !!}
                                 <a href="{{ url($cobranca->path() . '/edit') }}" class="btn btn-link btn-sm"><i class="far fa-edit fa-fw"></i></a>

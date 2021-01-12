@@ -12,15 +12,18 @@ class TextArea extends Component
 
     public $value;
 
+    public $label;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($attribute, $value)
+    public function __construct($attribute, $value = null, $label = null)
     {
         $this->value = $value;
         $this->attribute = $attribute;
+        $this->label = $label;
     }
 
     /**

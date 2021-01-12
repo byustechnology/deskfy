@@ -30,12 +30,12 @@
             {!! Form::close() !!}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca/create') }}">Cadastrar</a></li>
-            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca') }}">Listar cobranças</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas') }}">Em aberto</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=pagas') }}">Pagas</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=vencidas') }}">Vencidas</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas&data=vence_em&inicio=' . today()->format('Y-m-d') . '&termino=' . today()->addDays(15)->format('Y-m-d')) }}">A vencer (15 dias)</a></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca') }}">Listar todas</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="{{ url(config('deskfy.path') . '/empresa') }}">Empresa</a></li>

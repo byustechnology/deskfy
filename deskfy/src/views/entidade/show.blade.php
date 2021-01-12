@@ -38,6 +38,37 @@
         <x-breath::attribute title="Observações" :value="$entidade->observacao"/>
     </x-breath>
 
+    <x-breath::card title="Cobranças">
+        <x-breath::table :resource="$cobrancas" class="table-borderless table-striped">
+            <x-slot name="header">
+                <tr>
+                    <th>Cobrança</th>
+                    <th>Vence em</th>
+                    <th>Pago em</th>
+                    <th class="text-end">Valor</th>
+                    <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                </tr>
+            </x-slot>
+            <x-slot name="body">
+                @foreach($cobrancas as $cobranca)
+                    <tr>
+                        <td>
+                            <a href="{{ url($cobranca->path()) }}" class="fw-bold">{{ $cobranca->titulo }}</a>
+                        </td>
+                        <td>{{ $cobranca->vence_em->format('d/m/Y') }}</td>
+                        <td>{!! optional($cobranca->pago_em)->format('d/m/Y') ?? '<small class="text-muted">Não efetuado</small>' !!}</td>
+                        <td class="text-end fw-bold">R$ {{ number_format($cobranca->valor, 2, ',', '.') }}</td>
+                        <x-breath::table-action>
+                            {!! Form::open(['url' => $cobranca->path(), 'method' => 'delete']) !!}
+                                <button type="submit" class="btn btn-link btn-sm text-danger"><i class="far fa-trash-alt fa-fw"></i></button>
+                            {!! Form::close() !!}
+                        </x-breath>
+                    </tr>
+                @endforeach
+            </x-slot>
+        </x-breath>
+    </x-breath>
+
     <div class="row">
         <div class="col-lg-4">
             <x-breath::card title="Telefone">

@@ -55,7 +55,8 @@ class EntidadeController extends Controller
      */
     public function show(Entidade $entidade)
     {
-        return view('deskfy::entidade.show', compact('entidade'));
+        $cobrancas = $entidade->cobrancas()->limit(10)->orderBy('vence_em', 'desc')->get();
+        return view('deskfy::entidade.show', compact('entidade', 'cobrancas'));
     }
 
     /**
