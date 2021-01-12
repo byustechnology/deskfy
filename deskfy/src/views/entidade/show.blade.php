@@ -1,7 +1,42 @@
 @section('title', $entidade->titulo . ' - Entidades')
 <x-breath::app>
 
-    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-entidade-show', $entidade)">{{ $entidade->titulo }}</x-breath>
+    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-entidade-show', $entidade)">
+        {{ $entidade->titulo }}
+
+        <x-slot name="actions">
+            <a href="{{ url($entidade->path() . '/edit') }}" class="btn btn-primary btn-lg">Editar</a>
+        </x-slot>
+    </x-breath>
+
+    <x-breath::card title="Informações da entidade">
+
+        <div class="row">
+            <div class="col-lg-9"><x-breath::attribute title="Título" :value="$entidade->titulo"/></div>
+            <div class="col-lg-3"><x-breath::attribute title="Código" :value="$entidade->codigo"/></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-2"><x-breath::attribute title="CEP" :value="$entidade->cep"/></div>
+            <div class="col-lg-5"><x-breath::attribute title="Endereço" :value="$entidade->endereco"/></div>
+            <div class="col-lg-2"><x-breath::attribute title="Número" :value="$entidade->numero"/></div>
+            <div class="col-lg-3"><x-breath::attribute title="Bairro" :value="$entidade->bairro"/></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"><x-breath::attribute title="Cidade" :value="$entidade->cidade"/></div>
+            <div class="col-lg-2"><x-breath::attribute title="Estado" :value="$entidade->estado"/></div>
+            <div class="col-lg"><x-breath::attribute title="Complemento" :value="$entidade->complemento"/></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"><x-breath::attribute title="Tipo" :value="Deskfy\Models\Entidade::TIPOS[$entidade->tipo]"/></div>
+            <div class="col-lg-4"><x-breath::attribute title="Responsável" :value="$entidade->responsavel"/></div>
+        </div>
+    </x-breath>
+
+    <x-breath::card title="Informações adicionais">
+        <x-breath::attribute title="Observações" :value="$entidade->observacao"/>
+    </x-breath>
 
     <div class="row">
         <div class="col-lg-4">

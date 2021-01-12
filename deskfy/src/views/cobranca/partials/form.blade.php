@@ -1,3 +1,5 @@
+<x-breath::card>
+
 <!-- TODO: implementar a empresa neste formulário -->
 {!! Form::hidden('empresa_id', Deskfy\Models\Empresa::first()->id) !!}
 
@@ -42,3 +44,4 @@
 </x-breath>
 
 <button type="submit" class="btn btn-success btn-lg">{{ $submit_text ?? 'Salvar' }}</button>
+</x-breath>

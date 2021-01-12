@@ -6,6 +6,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title', 'Sistema de cobranças') - {{ config('app.name', 'Laravel') }}</title>
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="{{ asset('svgs/favicon.svg') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,24 +27,57 @@
                 font-family: 'Nunito';
                 font-weight: 400;
                 font-size: .85rem;
+                background: #eee;
             }
 
-            .h1, .h2, .h3, .h4, .h5, .h6 { font-weight: 700; }
+            .h1, .h2, .h3, .h4, .h5, .h6 {
+                font-weight: 700;
+                letter-spacing: -0.03rem;
+            }
 
-            .dropdown-menu { font-size: .8rem; }
+            .dropdown-menu { font-size: .9rem; }
+
+            .btn { font-weight: 600; letter-spacing: -0.025rem; }
 
             .breath-table-action {
                 text-align: center;
                 border-left: #ddd 2px solid;
             }
 
-            .breath-breadcrumbs { font-size: .75rem; }
+            .breath-breadcrumbs {
+                font-size: .75rem;
+                text-transform: lowercase;
+            }
+            .breath-breadcrumbs a {
+                text-decoration: none;
+                color: #333;
+            }
 
-            hr { border-bottom: #ddd 2px solid; }
+            .form-control { font-size: .9rem; }
+
+            hr { background-color: #999; }
 
             .table { white-space:nowrap; }
-            .table th { padding: 12px 16px; text-transform: uppercase; font-size: .75rem; font-weight: 800; color: #555; }
+            .table th { padding: 12px 16px; text-transform: uppercase; font-size: .65rem; font-weight: 800; color: #555; }
             .table td { padding: 12px 16px; }
+
+            .breath-param {
+                display: block;
+                background: #f4f4f4;
+                padding: 15px 20px;
+            }
+            .breath-param .title {
+                color: #777;
+                font-size: .65rem;
+                text-transform: uppercase;
+                display: block;
+                font-weight: 900;
+            }
+
+            .breath-param .value {
+                display: block;
+                font-weight: 600;
+            }
         </style>
 
         <!-- Scripts -->
@@ -62,6 +98,8 @@
                     {{ $slot }}
                 </div>
             </main>
+
+            <x-breath::footer/>
         </div>
     </body>
 </html>

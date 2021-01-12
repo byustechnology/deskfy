@@ -47,6 +47,14 @@ class AttributeNumber extends Component
     public $append;
 
     /**
+     * Defines the output 
+     * string.
+     * 
+     * @var string
+     */
+    public $output;
+
+    /**
      * Create a new component instance.
      *
      * @return void
@@ -59,6 +67,8 @@ class AttributeNumber extends Component
 
         $this->prepend = ! empty($prepend) ? $prepend . ' ' : $prepend;
         $this->append = ! empty($append) ? ' ' . $append : $append;
+
+        $this->output = $this->prepend . number_format($this->value, $this->decimal, ',', '.') . $this->append;
     }
 
     /**

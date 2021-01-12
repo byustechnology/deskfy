@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url(config('deskfy.path')) }}">{{ config('app.name') }}</a>
-    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop">
+    <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop">
       <i class="fas fa-bars fa-fw"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarTop">
@@ -17,7 +17,7 @@
             {!! Form::close() !!}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/entidade/create') }}">Cadastrar</a></li>
-            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/entidade') }}">Ver todos</a></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/entidade') }}">Listar entidades</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -30,7 +30,7 @@
             {!! Form::close() !!}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca/create') }}">Cadastrar</a></li>
-            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca') }}">Ver todas</a></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca') }}">Listar cobranças</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=abertas') }}">Em aberto</a></li>
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca?status=pagas') }}">Pagas</a></li>
