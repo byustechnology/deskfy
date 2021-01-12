@@ -35,7 +35,8 @@ class GerarCobrancaRecorrente
         $proximaData->$repetir_a_cada_funcao($cobranca->repetir_a_cada)->startOfDay();
 
         // Cria a cobrança recorrente
-        $recorrente = (new Cobranca)->fill($cobranca->makeHidden(['id', 'vence_em', 'paga_em'])->toArray());
+        $recorrente = (new Cobranca)->fill($cobranca->makeHidden(['id', 'vence_em', 'paga_em', 'valor'])->toArray());
+        $recorrente->valor = $cobranca->getRawOriginal('valor');
         $recorrente->vence_em = $proximaData;
         $recorrente->save();
         

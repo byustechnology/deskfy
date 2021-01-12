@@ -31,6 +31,8 @@
         <div class="row">
             <div class="col-lg-2"><x-breath::attribute title="Tipo" :value="Deskfy\Models\Entidade::TIPOS[$entidade->tipo]"/></div>
             <div class="col-lg-4"><x-breath::attribute title="Responsável" :value="$entidade->responsavel"/></div>
+            <div class="col-lg"><x-breath::attribute title="Total à receber" :value="'R$ ' . number_format($entidade->cobrancas()->abertas()->sum('valor'), 2, ',', '.')"/></div>
+            <div class="col-lg"><x-breath::attribute title="Total recebido" :value="'R$ ' . number_format($entidade->cobrancas()->pagas()->sum('valor'), 2, ',', '.')"/></div>
         </div>
     </x-breath>
 
@@ -44,7 +46,7 @@
                 <tr>
                     <th>Cobrança</th>
                     <th>Vence em</th>
-                    <th>Pago em</th>
+                    <th class="text-center"><i class="fas fa-check-circle fa-fw"></i></th>
                     <th class="text-end">Valor</th>
                     <th class="text-center"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
@@ -56,7 +58,7 @@
                             <a href="{{ url($cobranca->path()) }}" class="fw-bold">{{ $cobranca->titulo }}</a>
                         </td>
                         <td>{{ $cobranca->vence_em->format('d/m/Y') }}</td>
-                        <td>{!! optional($cobranca->pago_em)->format('d/m/Y') ?? '<small class="text-muted">Não efetuado</small>' !!}</td>
+                        <td class="text-center"><i class="fas fa-check-circle fa-fw {{ $cobranca->paga_em ? 'text-success' : 'text-muted opacity-25' }}"></i></td>
                         <td class="text-end fw-bold">R$ {{ number_format($cobranca->valor, 2, ',', '.') }}</td>
                         <x-breath::table-action>
                             {!! Form::open(['url' => $cobranca->path(), 'method' => 'delete']) !!}
