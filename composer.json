@@ -17,7 +17,9 @@
         "laravel/fortify": "^1.7",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "neitanod/forceutf8": "^2.0",
+        "setasign/fpdf": "^1.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

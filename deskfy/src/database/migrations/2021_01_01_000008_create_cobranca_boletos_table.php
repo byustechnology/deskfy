@@ -18,6 +18,7 @@ class CreateCobrancaBoletosTable extends Migration
             $table->foreignId('cobranca_id')->constrained()->onDelete('cascade');
             $table->string('numero');
             $table->string('numero_documento');
+            $table->string('carteira');
             $table->timestamps();
         });
     }

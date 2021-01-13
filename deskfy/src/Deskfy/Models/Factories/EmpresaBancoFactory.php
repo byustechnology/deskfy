@@ -24,10 +24,10 @@ class EmpresaBancoFactory extends Factory
     {
         return [
             'empresa_id' => Empresa::factory(), 
-            'banco' => $this->faker->randomElement(['Itaú', 'Bradesco', 'Santander']), 
+            'titulo' => $this->faker->randomElement(['Itaú']), // TODO: Implementar outros bancos após os testes iniciais.
             'agencia' => $this->faker->numerify('####'), 
             'conta' => $this->faker->numerify('######'), 
-            'carteira' => $this->faker->randomElement([110]), 
+            'carteira' => 109, // TODO: Deixar dinâmico dependendo do banco (usar constantes das classes)
         ];
     }
 }

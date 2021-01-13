@@ -4,6 +4,7 @@ namespace Deskfy\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Deskfy\Models\Cobranca;
+use Deskfy\UseCases\GerarBoleto;
 use Deskfy\Utils\Mask;
 use Illuminate\Http\Request;
 
@@ -35,25 +36,7 @@ class BoletoController extends Controller
             'documento' => Mask::make('##.###.###/####-##', $entidade->documento),
         ]);
 
-        $boleto = new \Eduardokum\LaravelBoleto\Boleto\Banco\Itau([
-            'logo'                   => realpath(__DIR__ . '/../logos/') . DIRECTORY_SEPARATOR . '341.png',
-            'dataVencimento'         => new \Carbon\Carbon(),
-            'valor'                  => $cobrancaBoleto->cobranca->valor,
-            'multa'                  => false,
-            'juros'                  => false,
-            'numero'                 => $cobrancaBoleto->numero,
-            'numeroDocumento'        => $cobrancaBoleto->numero_documento,
-            'pagador'                => $pagador,
-            'beneficiario'           => $beneficiario,
-            'diasBaixaAutomatica'    => 2,
-            'carteira'               => 110,
-            'agencia'                => $cobrancaBoleto->cobranca->empresa->agencia,
-            'conta'                  => $cobrancaBoleto->cobranca->empresa->conta,
-            'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
-            'instrucoes'             => ['instrucao 1', 'instrucao 2', 'instrucao 3'],
-            'aceite'                 => 'S',
-            'especieDoc'             => 'DM',
-        ]);
+        $boleto = GerarBoleto::perform($cobrancaBoleto, $beneficiario, $pagador);
 
         $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Itau([
             'agencia'      => $empresa->banco->agencia,

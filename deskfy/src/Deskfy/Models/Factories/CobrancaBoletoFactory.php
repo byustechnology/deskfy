@@ -25,7 +25,8 @@ class CobrancaBoletoFactory extends Factory
         return [
             'cobranca_id' => Cobranca::factory(), 
             'numero' => $this->faker->numerify('#########'), 
-            'numero_documento' => $this->faker->numerify('#########')
+            'numero_documento' => $this->faker->numerify('#########'), 
+            'carteira' => 110, // TODO: Deixar dinâmico dependendo do banco (usar constantes das classes).
         ];
     }
 }

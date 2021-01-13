@@ -16,7 +16,7 @@ class CreateEmpresaBancosTable extends Migration
         Schema::create('empresa_bancos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('empresa_id')->constrained()->onDelete('cascade');
-            $table->string('banco');
+            $table->string('titulo');
             $table->string('agencia');
             $table->string('conta');
             $table->string('carteira');
