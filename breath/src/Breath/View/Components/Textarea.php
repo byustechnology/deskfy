@@ -5,7 +5,7 @@ namespace Breath\View\Components;
 use Illuminate\View\Component;
 use Illuminate\Support\Str;
 
-class TextArea extends Component
+class Textarea extends Component
 {
 
     public $attribute;

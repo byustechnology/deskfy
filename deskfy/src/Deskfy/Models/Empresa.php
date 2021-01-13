@@ -12,6 +12,11 @@ class Empresa extends Model
 
     protected $guarded = [];
 
+    public function banco()
+    {
+        return $this->hasOne(EmpresaBanco::class);
+    }
+
     public function path()
     {
         return config('deskfy.path') . '/empresa/' . $this->id;

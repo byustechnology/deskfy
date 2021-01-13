@@ -46,6 +46,11 @@ class Cobranca extends Model
         return $this->hasMany(CobrancaArquivo::class);
     }
 
+    public function boletos()
+    {
+        return $this->hasMany(CobrancaBoleto::class);
+    }
+
     public function path()
     {
         return config('deskfy.path') . '/cobranca/' . $this->id;

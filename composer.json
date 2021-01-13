@@ -44,7 +44,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/", 
             "Breath\\": "breath/src/Breath", 
-            "Deskfy\\": "deskfy/src/Deskfy"
+            "Deskfy\\": "deskfy/src/Deskfy", 
+            "Eduardokum\\LaravelBoleto\\": "boleto/src"
         }
     },
     "autoload-dev": {

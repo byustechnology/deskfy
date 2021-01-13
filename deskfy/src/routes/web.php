@@ -2,6 +2,7 @@
 
 Route::prefix(config('deskfy.path'))->middleware(['web', 'auth'])->group(function() {
     
+    Route::get('boleto', 'Deskfy\Http\Controllers\BoletoController');
     Route::post('cobranca/{cobranca}/enviar', 'Deskfy\Http\Controllers\CobrancaAcaoController@enviar');
     Route::post('cobranca/{cobranca}/baixar', 'Deskfy\Http\Controllers\CobrancaAcaoController@baixar');
     Route::resource('cobranca/{cobranca}/arquivo', 'Deskfy\Http\Controllers\CobrancaArquivoController')->only(['store', 'destroy']);
