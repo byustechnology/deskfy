@@ -26,9 +26,12 @@ class CobrancaRequest extends FormRequest
     {
         return [
             'titulo' => 'required', 
+            'entidade_id' => 'required|exists:entidades,id', 
             'descricao' => 'required', 
             'valor' => 'required|numeric', 
             'vence_em' => 'required|date|after_or_equal:now', 
+            'recorrente' => 'required', 
+            'repetir_a_cada' => 'required_if:recorrente,1'
         ];
     }
 }

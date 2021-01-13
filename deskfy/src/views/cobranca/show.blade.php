@@ -37,10 +37,10 @@
                 <x-breath::attribute-number title="Valor" :value="$cobranca->valor" prepend="R$"/>
             </div>
             <div class="col-lg-3">
-                <x-breath::attribute-date title="Paga em" :value="$cobranca->paga_em"/>
+                <x-breath::attribute-date class="warning" title="Paga em" :value="$cobranca->paga_em"/>
             </div>
             <div class="col-lg-3">
-                <x-breath::attribute title="Recorrente?" :value="$cobranca->recorrente ? 'A cada ' . $cobranca->repetir_a_cada . ' ' . Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] : 'Não'"/>
+                <x-breath::attribute title="Recorrente?" class="warning" :value="$cobranca->recorrente ? 'A cada ' . $cobranca->repetir_a_cada . ' ' . Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] : 'Não'"/>
             </div>
         </div>
     </x-breath>

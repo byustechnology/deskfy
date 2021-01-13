@@ -33,8 +33,8 @@
         <div class="row">
             <div class="col-lg-2"><x-breath::attribute title="Tipo" :value="Deskfy\Models\Entidade::TIPOS[$entidade->tipo]"/></div>
             <div class="col-lg-4"><x-breath::attribute title="Responsável" :value="$entidade->responsavel"/></div>
-            <div class="col-lg"><x-breath::attribute title="Total à receber" :value="'R$ ' . number_format($entidade->cobrancas()->abertas()->sum('valor'), 2, ',', '.')"/></div>
-            <div class="col-lg"><x-breath::attribute title="Total recebido" :value="'R$ ' . number_format($entidade->cobrancas()->pagas()->sum('valor'), 2, ',', '.')"/></div>
+            <div class="col-lg"><x-breath::attribute title="Total à receber" class="warning" :value="'R$ ' . number_format($entidade->cobrancas()->abertas()->sum('valor') / 100, 2, ',', '.')"/></div>
+            <div class="col-lg"><x-breath::attribute title="Total recebido" class="success" :value="'R$ ' . number_format($entidade->cobrancas()->pagas()->sum('valor') / 100, 2, ',', '.')"/></div>
         </div>
     </x-breath>
 

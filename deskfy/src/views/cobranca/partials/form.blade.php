@@ -4,21 +4,17 @@
 {!! Form::hidden('empresa_id', Deskfy\Models\Empresa::first()->id) !!}
 
 <div class="row">
-    <div class="col-lg-5">
-        <x-breath::select label="Selecione a entidade" attribute="entidade_id" :list="Deskfy\Models\Entidade::orderBy('titulo')->pluck('titulo', 'id')->toArray()">
-            <x-slot name="hint">Informe a entidade associada a esta cobrança</x-slot>
-        </x-breath>
-    </div>
-    <div class="col-lg-7">
+    <div class="col-lg-8">
         <x-breath::input label="Título da cobrança" attribute="titulo">
             <x-slot name="hint">Informe o título da cobrança. <strong class="text-success">O título identifica a cobrança e será exibido para a entidade</strong></x-slot>
         </x-breath>
     </div>
+    <div class="col-lg-4">
+        <x-breath::select label="Selecione a entidade" attribute="entidade_id" :list="['' => 'Por favor, selecione...'] + Deskfy\Models\Entidade::orderBy('titulo')->pluck('titulo', 'id')->toArray()">
+            <x-slot name="hint">Informe a entidade associada a esta cobrança</x-slot>
+        </x-breath>
+    </div>
 </div>
-
-<x-breath::textarea label="Descrição" attribute="descricao">
-    <x-slot name="hint">Informe uma descrição para a cobrança. <strong class="text-success">A descrição será exibida para a entidade e tem como objetivo explicar os itens que estão sendo cobrados</strong></x-slot>
-</x-breath>
 
 <div class="row">
     <div class="col-lg-3">
@@ -34,6 +30,10 @@
     </div>
 </div>
 
+<x-breath::textarea label="Descrição" attribute="descricao">
+    <x-slot name="hint">Informe uma descrição para a cobrança. <strong class="text-success">A descrição será exibida para a entidade e tem como objetivo explicar os itens que estão sendo cobrados</strong></x-slot>
+</x-breath>
+
 <x-breath::textarea label="Observações" attribute="observacao">
     <x-slot name="hint">Preencha caso deseje adicionar observações para esta cobrança. <strong class="text-success">Este campo é opcional</strong></x-slot>
 </x-breath>
@@ -43,7 +43,7 @@
 <x-breath::card title="Recorrência">
     <div class="row">
         <div class="col-lg-2">
-            <x-breath::select x-on:chang="isRecorrente = $event.target.value" label="Recorrência" attribute="recorrente" :list="[
+            <x-breath::select label="Recorrência" attribute="recorrente" :list="[
                 '' => 'Por favor, selecione...', 
                 0 => 'Não repetir', 
                 1 => 'Repetir cobrança', 
@@ -52,7 +52,7 @@
             </x-breath>
         </div>
 
-        <div class="col-lg-3" x-show="false">
+        <div class="col-lg-3">
             <x-breath::select label="Frequência" attribute="repetir_a_cada" :list="[
                 '' => 'Por favor, selecione..', 
                 1 => 'Mensalmente', 
@@ -68,4 +68,6 @@
     </div>
 </x-breath>
 
-<button type="submit" class="btn btn-success btn-lg">{{ $submit_text ?? 'Salvar' }}</button>
+<x-breath::form-footer>
+    <button type="submit" class="btn btn-success btn-lg">{{ $submit_text ?? 'Salvar' }}</button>
+</x-breath::form-footer>

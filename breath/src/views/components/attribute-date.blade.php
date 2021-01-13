@@ -1,1 +1,1 @@
-<x-breath::attribute :title="$title" :value="$value"/>
+<x-breath::attribute :title="$title" :value="$value" :class="$class"/>

@@ -1,1 +1,1 @@
-{!! Form::label($attribute, $name, ['class' => 'form-label fw-bold d-block']) !!}
+{!! Form::label($attribute, $name, ['class' => $errors->has($attribute) ? 'form-label fw-bold d-block text-danger' : 'form-label fw-bold d-block']) !!}

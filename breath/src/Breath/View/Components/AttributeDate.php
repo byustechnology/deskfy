@@ -40,12 +40,14 @@ class AttributeDate extends Component
      */
     public $null;
 
+    public $class;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $value, $format = 'd/m/Y', $null = 'Não informado')
+    public function __construct($title, $value, $format = 'd/m/Y', $null = 'Não informado', $class = null)
     {
         $this->title = $title;
 
@@ -53,6 +55,7 @@ class AttributeDate extends Component
         $this->value = strtotime($value) ? Carbon::parse($value) : null;
         $this->format = $format;
         $this->null = $null;
+        $this->class = $class;
 
         if ( ! is_null($this->value)) {
             $this->value = $this->value->format('d/m/Y') . ', ' . $this->value->diffForHumans();

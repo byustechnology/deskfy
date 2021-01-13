@@ -61,6 +61,16 @@
                 color: #333;
             }
 
+            .breath-card-footer {
+                background: #d1e7dd;
+                position: sticky;
+                bottom: 0;
+            }
+
+            .opacity-50 { opacity: .5; }
+            .opacity-25 { opacity: .25; }
+
+            .toast-body a { color: #fff; }
             .form-control { font-size: .9rem; font-weight: 600; }
 
             hr { background-color: #999; }
@@ -81,11 +91,14 @@
                 display: block;
                 font-weight: 900;
             }
-
             .breath-param .value {
                 display: block;
                 font-weight: 600;
             }
+            .breath-param.danger { background: #d1e7dd; }
+            .breath-param.success { background: #f8d7da;  }
+            .breath-param.warning { background: #fff3cd; }
+            
         </style>
 
         <!-- Scripts -->

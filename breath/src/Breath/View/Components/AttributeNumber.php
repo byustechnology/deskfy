@@ -54,12 +54,14 @@ class AttributeNumber extends Component
      */
     public $output;
 
+    public $class;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $value, $decimal = 2, $prepend = null, $append = null)
+    public function __construct($title, $value, $decimal = 2, $prepend = null, $append = null, $class = null)
     {
         $this->title = $title;
         $this->value = $value;
@@ -69,6 +71,7 @@ class AttributeNumber extends Component
         $this->append = ! empty($append) ? ' ' . $append : $append;
 
         $this->output = $this->prepend . number_format($this->value, $this->decimal, ',', '.') . $this->append;
+        $this->class = $class;
     }
 
     /**
