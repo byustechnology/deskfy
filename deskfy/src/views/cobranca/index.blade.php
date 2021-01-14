@@ -80,6 +80,12 @@
             </x-slot>
         </x-breath>
     </x-breath>
+    <x-breath::card title="Legendas">
+        <span class="d-block my-2"><i class="fas fa-infinity fa-fw me-2 text-muted"></i>Cobrança recorrente. Uma nova cobrança é gerada quando essa cobrança for baixada.</span>
+        <span class="d-block my-2"><i class="fas fa-share fa-fw me-2 text-muted"></i>Encaminhado a entidade. A cobrança foi enviada no e-mail da entidade.</span>
+        <span class="d-block my-2"><i class="fas fa-paperclip fa-fw me-2 text-muted"></i>Anexos na cobrança. A cobrança possui arquivos anexados a ela (não considerando o boleto).</span>
+        <span class="d-block my-2"><i class="fas fa-check-circle fa-fw me-2 text-muted"></i>Cobrança paga. A cobrança foi indicada como paga pela entidade.</span>
+    </x-breath>
 </x-breath>
 
 @include('deskfy::cobranca.partials.pesquisar')
