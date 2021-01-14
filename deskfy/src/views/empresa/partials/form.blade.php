@@ -53,7 +53,7 @@
             </x-breath>
         </div>
         <div class="col-lg-3">
-            <x-breath::select label="Estado" attribute="estado" :list="Deskfy\Models\Estado::BRASIL">
+            <x-breath::select label="Estado" attribute="estado" :list="['' => 'Por favor, selecione...'] + Deskfy\Models\Estado::BRASIL">
                 <x-slot name="hint">Informe o estado referente a cidade</x-slot>
             </x-breath>
         </div>

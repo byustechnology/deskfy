@@ -80,8 +80,45 @@
         </x-breath>
     </x-breath>
 
+    <x-breath::card title="Boletos da cobrança">
+        <x-slot name="actions">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#m-boleto" class="btn btn-primary btn-sm"><i class="far fa-file-pdf fa-fw me-2"></i>Gerar boleto</a>
+        </x-slot>
+
+        <x-breath::table :resource="$cobranca->boletos" class="table-borderless table-striped table-hover">
+            <x-slot name="header">
+                <tr>
+                    <th>#</th>
+                    <th>Número</th>
+                    <th>Caminho</th>
+                    <th>Adicionado em</th>
+                    <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                </tr>
+            </x-slot>
+
+            <x-slot name="body">
+                @foreach($cobranca->boletos as $boleto)
+                    <tr>
+                        <td>
+                        <i class="far fa-file-pdf fa-fw me-2 fa-sm text-muted"></i><a class="fw-bold" href="#" target="_blank">Boleto #{{ $boleto->id }}</a><br>
+                        </td>
+                        <td>{{ $boleto->numero }}</td>
+                        <td>{{ $boleto->caminho }}</td>
+                        <td>{{ $boleto->created_at->format('d/m/Y') }}, {{ $boleto->created_at->diffForHumans() }}</td>
+                        <x-breath::table-action>
+                            {!! Form::open(['url' => $boleto->path(), 'method' => 'delete']) !!}
+                                <button type="submit" class="btn btn-link btn-sm text-danger"><i class="far fa-trash-alt fa-fw"></i></button>
+                            {!! Form::close() !!}
+                        </x-breath>
+                    </tr>
+                @endforeach
+            </x-slot>
+        </x-breath>
+    </x-breath>
+
 </x-breath>
 
 @include('deskfy::cobranca.partials.arquivo')
 @include('deskfy::cobranca.partials.enviar')
 @include('deskfy::cobranca.partials.baixar')
+@include('deskfy::cobranca.partials.boleto')

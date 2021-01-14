@@ -2,7 +2,13 @@
 
 <x-breath::app>
 
-    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca')">Cobranças</x-breath>
+    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-cobranca')">
+        Cobranças
+
+        <x-slot name="actions">
+            <a href="{{ url(request()->url() . '/create') }}" class="btn btn-lg btn-primary">Adicionar</a>
+        </x-slot>
+    </x-breath>
 
     <x-breath::card title="Cobranças">
 

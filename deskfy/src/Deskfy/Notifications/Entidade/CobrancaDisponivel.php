@@ -53,6 +53,9 @@ class CobrancaDisponivel extends Notification
         foreach ($this->cobranca->arquivos as $arquivo) {
             $mail->attach(storage_path('app/') . $arquivo->caminho . $arquivo->arquivo);
         }
+        foreach ($this->cobranca->boletos as $boleto) {
+            $mail->attach(storage_path('app/') . $boleto->caminho);
+        }
 
         return $mail;
                     

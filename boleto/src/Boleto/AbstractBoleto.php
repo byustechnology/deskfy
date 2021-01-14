@@ -1264,7 +1264,7 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function getLogoBanco()
     {
-        return realpath(__DIR__ . '/../../logos/' . $this->getCodigoBanco() . '.png');
+        return $this->logo;
     }
 
     /**

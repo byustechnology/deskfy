@@ -45,8 +45,13 @@ class BoletoController extends Controller
             'carteira'     => $empresa->banco->carteira,
             'beneficiario' => $beneficiario,
         ]);
-        $remessa->addBoleto($boleto);
-        echo $remessa->save(storage_path('app/') . 'itau.txt');
+        // $remessa->addBoleto($boleto);
+        // echo $remessa->save(storage_path('app/') . 'itau.txt');
+
+        // Gerar PDF do boleto
+        $pdf = new \Eduardokum\LaravelBoleto\Boleto\Render\Pdf;
+        $pdf->addBoleto($boleto);
+        $pdf->gerarBoleto($pdf::OUTPUT_SAVE, storage_path('app/') . 'boleto/' . 'test.pdf');
 
     }
 }
