@@ -38,6 +38,19 @@
             <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/cobranca') }}">Listar todas</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" data-bs-toggle="dropdown">Remessas</a>
+          <ul class="dropdown-menu shadow">
+
+            {!! Form::open(['url' => config('deskfy.path') . '/remessa', 'method' => 'get', 'class' => 'px-2']) !!}
+              {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Buscar...', 'autocomplete' => 'off']) !!}
+              {!! Form::hidden('campo', 'auto') !!}
+            {!! Form::close() !!}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/remessa/create') }}">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="{{ url(config('deskfy.path') . '/remessa') }}">Listar remessas</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link" href="{{ url(config('deskfy.path') . '/empresa') }}">Empresa</a></li>
       </ul>
     </div>

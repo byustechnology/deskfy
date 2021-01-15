@@ -29,6 +29,11 @@ class CobrancaBoleto extends Model
         return $this->belongsTo(Cobranca::class);
     }
 
+    public function remessa()
+    {
+        return $this->belongsTo(Remessa::class);
+    }
+
     public function path()
     {
         return $this->cobranca->path() . '/boleto/' . $this->id;
@@ -37,5 +42,10 @@ class CobrancaBoleto extends Model
     public function storagePath()
     {
         return config('deskfy.path') . '/storage/' . $this->caminho . $this->arquivo;
+    }
+
+    public function scopeNaoPossuiRemessaAtribuida($query)
+    {
+        return $query->whereDoesntHave('remessa');
     }
 }

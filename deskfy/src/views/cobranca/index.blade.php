@@ -35,7 +35,9 @@
                     <th>Vence em</th>
                     <th class="text-center"><i class="fas fa-check-circle fa-fw"></i></th>
                     <th class="text-center"><i class="fas fa-infinity fa-fw"></i></th>
-                    <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
+                    <th class="text-center"><i class="fas fa-paperclip fa-fw"></i></th>
+                    <th class="text-center"><i class="fas fa-infinity fa-fw"></i></th>
+                    <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw"></i></th>
                 </tr>
             </x-slot>
             <x-slot name="body">
@@ -54,13 +56,16 @@
                             {{ $cobranca->vence_em->format('d/m/Y') }}<br>
                             <small class="text-muted">{{ $cobranca->vence_em->diffForHumans() }}</small>
                         </td>
-                        <td class="text-center"><i class="fas fa-check-circle fa-fw fa-sm {{ ! empty($cobranca->paga_em) ? 'text-success' : 'text-muted opactiy-50' }}"></i></td>
+                        <td class="text-center"><i class="fas fa-check-circle fa-fw {{ ! empty($cobranca->paga_em) ? 'text-success' : 'text-muted opactiy-25' }}"></i></td>
 
                         @if ($cobranca->recorrente)
-                            <td class="text-center" title="Repete a cada {{ $cobranca->repetir_a_cada }} {{ Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] }}"><i class="fas fa-infinity fa-fw fa-sm text-success"></i></td>
+                            <td class="text-center" title="Repete a cada {{ $cobranca->repetir_a_cada }} {{ Deskfy\Models\Cobranca::REPETIR_A_CADA_CONDICOES[$cobranca->repetir_a_cada_condicao] }}"><i class="fas fa-infinity fa-fw text-success"></i></td>
                         @else
-                            <td class="text-center"><i class="fas fa-infinity fa-fw fa-sm text-muted opacity-50"></i></td>
+                            <td class="text-center"><i class="fas fa-infinity fa-fw text-muted opacity-25"></i></td>
                         @endif
+
+                        <td class="text-center"><i class="fas fa-paperclip fa-fw {{ $cobranca->arquivos_count > 0 ? 'text-success' : 'text-muted opacity-25' }}"></i>
+                        <td class="text-center"><i class="fas fa-share fa-fw {{ ! empty($cobranca->enviada_em) ? 'text-success' : 'text-muted opacity-25' }}"></i>
                         
                         <x-breath::table-action>
                             {!! Form::open(['url' => $cobranca->path(), 'method' => 'delete']) !!}

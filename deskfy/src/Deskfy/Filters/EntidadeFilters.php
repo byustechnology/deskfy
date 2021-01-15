@@ -11,7 +11,13 @@ class EntidadeFilters extends Filters
      */
     protected $filters = [
         'keyword',
-        'auto',
+        'auto', 
+        'codigo', 
+        'titulo', 
+        'documento', 
+        'responsavel', 
+        'cidade', 
+        'estado', 
     ];
 
     /**
@@ -27,6 +33,36 @@ class EntidadeFilters extends Filters
     protected function auto($auto)
     {
         return $this->builder->where('titulo', 'like', '%' . $auto . '%')->orWhere('documento', 'like', '%' . $auto . '%');
+    }
+
+    protected function codigo($codigo)
+    {
+        return $this->builder->where('codigo', 'like', '%' . $codigo . '%');
+    }
+
+    protected function titulo($titulo)
+    {
+        return $this->builder->where('titulo', 'like', '%' . $titulo . '%');
+    }
+
+    protected function documento($documento)
+    {
+        return $this->builder->where('documento', 'like', '%' . $documento . '%');
+    }
+
+    protected function responsavel($responsavel)
+    {
+        return $this->builder->where('responsavel', 'like', '%' . $responsavel . '%');
+    }
+
+    protected function cidade($cidade)
+    {
+        return $this->builder->where('cidade', 'like', '%' . $cidade . '%');
+    }
+
+    protected function estado($estado)
+    {
+        return $this->builder->where('estado', 'like', '%' . $estado . '%');
     }
 
 }

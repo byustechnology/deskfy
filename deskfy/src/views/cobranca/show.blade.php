@@ -92,6 +92,7 @@
                     <th>Número</th>
                     <th>Caminho</th>
                     <th>Adicionado em</th>
+                    <th>Remessa</th>
                     <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
             </x-slot>
@@ -105,6 +106,7 @@
                         <td>{{ $boleto->numero }}</td>
                         <td>{{ $boleto->caminho }}</td>
                         <td>{{ $boleto->created_at->format('d/m/Y') }}, {{ $boleto->created_at->diffForHumans() }}</td>
+                        <td>{!! ! empty($boleto->remessa) ? '<a href="' . $boleto->remessa->path() . '" class="fw-bold">' . $boleto->remessa->titulo . '</a>' : '<span class="text-muted">Sem remessa</span>' !!}</td>
                         <x-breath::table-action>
                             {!! Form::open(['url' => $boleto->path(), 'method' => 'delete']) !!}
                                 <button type="submit" class="btn btn-link btn-sm text-danger"><i class="far fa-trash-alt fa-fw"></i></button>

@@ -3,6 +3,9 @@
 Route::prefix(config('deskfy.path'))->middleware(['web', 'auth'])->group(function() {
     
     Route::get('boleto', 'Deskfy\Http\Controllers\BoletoController');
+    Route::get('remessa/{remessa}/arquivo', 'Deskfy\Http\Controllers\RemessaArquivoController');
+    Route::resource('remessa/{remessa}/boleto', 'Deskfy\Http\Controllers\RemessaBoletoController')->only(['store', 'destroy']);
+    Route::resource('remessa', 'Deskfy\Http\Controllers\RemessaController');
     Route::resource('cobranca/{cobranca}/boleto', 'Deskfy\Http\Controllers\CobrancaBoletoController')->only(['store', 'destroy']);
     Route::post('cobranca/{cobranca}/enviar', 'Deskfy\Http\Controllers\CobrancaAcaoController@enviar');
     Route::post('cobranca/{cobranca}/baixar', 'Deskfy\Http\Controllers\CobrancaAcaoController@baixar');

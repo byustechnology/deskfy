@@ -58,3 +58,21 @@ Breadcrumbs::for('deskfy-cobranca-edit', function ($t, $cobranca) {
     $t->parent('deskfy-cobranca-show', $cobranca);
     $t->push('Editar', url($cobranca->path() . '/edit'));
 });
+
+// Remessas
+Breadcrumbs::for('deskfy-remessa', function ($t) {
+    $t->parent('deskfy');
+    $t->push('Remessas', url(config('deskfy.path') . '/remessa'));
+});
+Breadcrumbs::for('deskfy-remessa-create', function ($t) {
+    $t->parent('deskfy-remessa');
+    $t->push('Adicionar', url(config('deskfy.path') . '/remessa/create'));
+});
+Breadcrumbs::for('deskfy-remessa-show', function ($t, $remessa) {
+    $t->parent('deskfy-remessa');
+    $t->push($remessa->titulo, url($remessa->path()));
+});
+Breadcrumbs::for('deskfy-remessa-edit', function ($t, $remessa) {
+    $t->parent('deskfy-remessa-show', $remessa);
+    $t->push('Editar', url($remessa->path() . '/edit'));
+});

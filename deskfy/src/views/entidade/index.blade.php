@@ -23,6 +23,7 @@
                 <tr>
                     <th>Título</th>
                     <th>Endereço</th>
+                    <th>Código</th>
                     <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
             </x-slot>
@@ -35,8 +36,12 @@
                             <small class="text-muted">{{ $entidade->documento }} - {{ $entidade->responsavel }}</small>
                         </td>
                         <td>
-                            {{ $entidade->endereco }}, {{ $entidade->numero }}<br>
+                            <span class="fw-bold">{{ $entidade->endereco }}, {{ $entidade->numero }}</span><br>
                             <small class="text-muted">{{ $entidade->bairro }} - {{ $entidade->cidade }}/{{ $entidade->estado }}</small>
+                        </td>
+                        <td>
+                            <span class="fw-bold">{{ $entidade->codigo }}</span><br>
+                            <small class="text-muted">ID #{{ $entidade->id }}</small>
                         </td>
                         <x-breath::table-action>
                             {!! Form::open(['url' => $entidade->path(), 'method' => 'delete']) !!}
@@ -49,5 +54,6 @@
             </x-slot>
         </x-breath>
     </x-breath>
-
 </x-breath>
+
+@include('deskfy::entidade.partials.pesquisar')

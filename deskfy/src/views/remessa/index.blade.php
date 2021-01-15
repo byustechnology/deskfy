@@ -1,8 +1,8 @@
-@section('title', 'Minha empresa')
+@section('title', 'Remessas')
 <x-breath::app>
 
-    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-empresa')">
-        Minha empresa
+    <x-breath::title :breadcrumbs="Breadcrumbs::render('deskfy-remessa')">
+        Remessas
 
         <x-slot name="actions">
             <a href="{{ url(request()->url() . '/create') }}" class="btn btn-lg btn-primary">Adicionar</a>
@@ -18,34 +18,36 @@
             @endif
         </x-slot>
 
-        <x-breath::table-with-pagination :resource="$empresas">
+        <x-breath::table-with-pagination :resource="$remessas">
             <x-slot name="header">
                 <tr>
                     <th>Título</th>
-                    <th>Endereço</th>
-                    <th>Código</th>
+                    <th>ID</th>
+                    <th>Boletos</th>
+                    <th>Adicionada em</th>
                     <th class="text-center breath-table-action"><i class="fas fa-bars fa-fw fa-sm"></i></th>
                 </tr>
             </x-slot>
 
             <x-slot name="body">
-                @foreach($empresas as $empresa)
+                @foreach($remessas as $remessa)
                     <tr>
                         <td>
-                            <a href="{{ url($empresa->path()) }}" class="fw-bold">{{ $empresa->titulo }}</a><br>
-                            <small class="text-muted">{{ $empresa->documento }}</small>
+                            <a href="{{ url($remessa->path()) }}" class="fw-bold">{{ $remessa->titulo }}</a><br>
+                            <small class="text-muted">{{ Str::limit($remessa->observacao, 100) }}</small>
+                        </td>
+                        <td><span class="fw-bold">#{{ $remessa->id }}</span></td>
+                        <td>
+                            <span class="fw-bold">{{ $remessa->boletos_count }}</span><br>
+                            <small class="text-muted">boleto(s)</small>
                         </td>
                         <td>
-                            <span class="fw-bold">{{ $empresa->endereco }}, {{ $empresa->numero }}</span><br>
-                            <small class="text-muted">{{ $empresa->bairro }} - {{ $empresa->cidade }}/{{ $empresa->estado }}</small>
-                        </td>
-                        <td>
-                            <span class="fw-bold">{{ $empresa->codigo }}</span><br>
-                            <small class="text-muted">ID #{{ $empresa->id }}</small>
+                            <span class="fw-bold">{{ $remessa->created_at->format('d/m/Y') }}</span><br>
+                            <small class="text-muted">{{ $remessa->created_at->diffForHumans() }}</small>
                         </td>
                         <x-breath::table-action>
-                            {!! Form::open(['url' => $empresa->path(), 'method' => 'delete']) !!}
-                                <a href="{{ url($empresa->path() . '/edit') }}" class="btn btn-link btn-sm"><i class="far fa-edit fa-fw"></i></a>
+                            {!! Form::open(['url' => $remessa->path(), 'method' => 'delete']) !!}
+                                <a href="{{ url($remessa->path() . '/edit') }}" class="btn btn-link btn-sm"><i class="far fa-edit fa-fw"></i></a>
                                 <button type="submit" class="btn btn-link btn-sm text-danger"><i class="far fa-trash-alt fa-fw"></i></button>
                             {!! Form::close() !!}
                         </x-breath>
@@ -56,4 +58,4 @@
     </x-breath>
 </x-breath>
 
-@include('deskfy::empresa.partials.pesquisar')
+@include('deskfy::remessa.partials.pesquisar')

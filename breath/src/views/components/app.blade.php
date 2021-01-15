@@ -76,7 +76,8 @@
             hr { background-color: #999; }
 
             .table { white-space:nowrap; }
-            .table th { padding: 12px 16px; text-transform: uppercase; font-size: .65rem; font-weight: 800; color: #555; }
+            .table th { padding: 12px 16px; text-transform: uppercase; font-size: .7rem; letter-spacing: -0.03rem; font-weight: 800; color: #555; }
+            .table th .fa-fw { font-size: 14px; }
             .table td { padding: 12px 16px; }
 
             .breath-param {
